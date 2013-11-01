@@ -8,7 +8,7 @@ NEO = Neography::Rest.new
 module ExperimentalGraph
   # Bunch of methods for easier node creation
 
-  LABELS = %i{ person work lemma }
+  LABELS = %i{ person work lemma ethnos }
   LABELS.each do |label|
     self.class_eval <<-STR
       def #{label}(name)
@@ -20,6 +20,7 @@ module ExperimentalGraph
   def create_labeled(name, label)
     n = NEO.create_node('name' => name)
     NEO.add_label(n, label)
+    NEO.add_node_to_index(label, label, name, n)
     n
   end
 
