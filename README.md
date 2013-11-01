@@ -1,6 +1,6 @@
 # ExperimentalGraph
 
-TODO: Write a gem description
+Currently uses neo4j community edition 2.0.0-M06 (beta)
 
 ## Installation
 
