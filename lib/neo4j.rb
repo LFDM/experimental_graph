@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'neography'
+require_relative '../config/initializers/neography'
+
 class Neo4j
   attr_reader :neo
 
