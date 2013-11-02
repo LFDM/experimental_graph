@@ -15,6 +15,11 @@ module ExperimentalGraph
       convert(@neo.execute_query(q, opts))
     end
 
+    def batch(queries)
+      args = queries.map { |q| [:execute_query, q] }
+      @neo.batch(*args)
+    end
+
     def convert(result)
       return if result.nil?
 
