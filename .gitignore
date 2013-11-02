@@ -1,4 +1,7 @@
+# neo4j stuff
 neo4j/
+.shell_history
+
 *.gem
 *.rbc
 .bundle
