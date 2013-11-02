@@ -8,3 +8,9 @@
   <word id="7" form="ditissimus" lemma="dis1" postag="a-s---mns" relation="ATR_CO" head="6"/>
   <word id="8" form="Orgetorix" lemma="Orgetorix1" postag="n-s---mn-" relation="SBJ" head="5"/>
 </sentence>
+
+<sentence id="126">
+  <word id="1" form="Orgetorix" lemma="Orgetorix1" postag="n-s---mn-" relation="SBJ" head="3"/>
+  <word id="2" form="mortuus" lemma="mortuus1" postag="a-s---mn-" relation="PNOM" head="3"/>
+  <word id="3" form="est" lemma="sum1" postag="v3spia---" relation="PRED" head="0"/>
+<sentence>
