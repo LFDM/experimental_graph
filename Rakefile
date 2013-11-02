@@ -12,4 +12,18 @@ namespace :neo4j do
     system('./neo4j/bin/neo4j-shell -c "dump" > ./data/dump.cql')
     puts 'Dump successful! Find the Cypher file in data/dump.cql'
   end
+
+  task :reseed do
+    print "Do you really want to continue? Undumped changes will be lost. [y] "
+    if $stdin.get.chomp == 'y'
+      puts 'Resetting...'
+      Rake::Task['neo4j:reset_yes_i_am_sure'].execute
+      puts 'Seeding!'
+      system('cat ./data/dump.cql | ./neo4j/bin/neo4j-shell')
+      puts
+      puts 'Seed successful!'
+    else
+      puts 'Aborted!'
+    end
+  end
 end
