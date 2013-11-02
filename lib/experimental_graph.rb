@@ -3,10 +3,10 @@ require 'rubygems'
 require 'neography'
 require_relative '../config/initializers/neography'
 
-NEO = Neography::Rest.new
-
 module ExperimentalGraph
   class Neo4j
+    attr_reader :neo
+
     def initialize
       @neo = Neography::Rest.new
     end
