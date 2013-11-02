@@ -5,6 +5,5 @@ class XmlParser
 
   def initialize
     @doc = Nokogiri::XML(CAESAR)
-    require 'pry'; binding.pry
   end
 end
