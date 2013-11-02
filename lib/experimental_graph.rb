@@ -26,15 +26,25 @@ module ExperimentalGraph
       Neography::Node.create(args)
     end
 
-    def node_with_label(args, label_key)
+    def node_with_label(label, args)
       n = node(args)
-      @neo.add_label(n, args[label_key.capitalize])
+      @neo.add_label(n, label)
       n
+    end
+
+    def add_label(node, label)
+      n = get_node(node)
+      @neo.add_label(n, label)
+    end
+
+    def add_index(node, index, key = index, val)
+      n = get_node(node)
+      n.add_to_index(index, key, val)
     end
 
     # Accessing labels of a single node
     def labels_of(node)
-      id = node.kind_of?(Fixnum) ? node : node.neo_id
+      id = get_node(node).neo_id
       @neo.connection.get("/node/#{id}/labels")
     end
 
