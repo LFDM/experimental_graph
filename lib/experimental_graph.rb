@@ -11,6 +11,7 @@ module ExperimentalGraph
       @neo = Neography::Rest.new
     end
 
+    # Cypher methods
     def query(q, opts = {})
       convert(@neo.execute_query(q, opts))
     end
@@ -19,6 +20,38 @@ module ExperimentalGraph
       args = queries.map { |q| [:execute_query, q] }
       @neo.batch(*args)
     end
+
+    # Creation methods
+    def node(args)
+      Neography::Node.create(args)
+    end
+
+    def node_with_label(args, label_key)
+      n = node(args)
+      @neo.add_label(n, args[label_key.capitalize])
+      n
+    end
+
+    # Accessing labels of a single node
+    def labels_of(node)
+      id = node.kind_of?(Fixnum) ? node : node.neo_id
+      @neo.connection.get("/node/#{id}/labels")
+    end
+
+    def rel(type, outgoing, ingoing)
+      Neography::Relationship.create(type, outgoing, ingoing)
+    end
+
+    # Node retrieval
+    def get_node(node)
+      Neography::Node.load(node)
+    end
+
+    def find
+      # access the index
+    end
+
+    private
 
     def convert(result)
       return if result.nil?
