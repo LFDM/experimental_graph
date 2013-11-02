@@ -60,6 +60,11 @@ class Neo4j
     hashes.map { |hsh| get_node(hsh) }
   end
 
+  def get_labeled(label)
+    @neo.get_nodes_labeled(label)
+  end
+
+
   private
 
   def convert(result)
