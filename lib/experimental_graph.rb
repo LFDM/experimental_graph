@@ -6,6 +6,44 @@ require_relative '../config/initializers/neography'
 NEO = Neography::Rest.new
 
 module ExperimentalGraph
+  class Neo4j
+    def initialize
+      @neo = Neography::Rest.new
+    end
+
+    def query(q, opts = {})
+      convert(@neo.execute_query(q, opts))
+    end
+
+    def convert(result)
+      return if result.nil?
+
+      data = result['data']
+      cols = result['columns']
+      data.map do |row|
+        row.each_with_index.each_with_object({}) do |(cell, i), hsh|
+          hsh[cols[i]] = convert_cell(cell)
+        end
+      end
+    end
+
+    def convert_cell(cell)
+      if cell['type']
+        Neography::Relationship.new(cell)
+      elsif cell['self']
+        with_server(Neography::Node.new(cell))
+      elsif cell.kind_of?(Enumerable)
+        cell.map { |c| convert_cell(c) }
+      else
+        cell
+      end
+    end
+
+    def with_server(node)
+      node.neo_server = @neo
+      node
+    end
+  end
   # Bunch of methods for easier node creation
 
   LABELS = %i{ person work lemma ethnos }
@@ -53,10 +91,10 @@ module ExperimentalGraph
     send(method, *nodes.reverse)
   end
 
-  def method_missing(meth, *args, &blk)
-    case meth
-    when /^r_(.*)/ then NEO.create_relationship($1, *args)
-    else super
-    end
-  end
+  #def method_missing(meth, *args, &blk)
+    #case meth
+    #when /^r_(.*)/ then NEO.create_relationship($1, *args)
+    #else super
+    #end
+  #end
 end
