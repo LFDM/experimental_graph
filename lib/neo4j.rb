@@ -57,6 +57,7 @@ class Neo4j
 
   def find(index, key = index, value)
     hashes = @neo.find_node_index(index, key, value)
+    return [] unless hashes
     hashes.map { |hsh| get_node(hsh) }
   end
 

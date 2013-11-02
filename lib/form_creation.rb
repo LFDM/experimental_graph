@@ -58,7 +58,7 @@ class FormCreation
 
   def create_lemma(lemma_string)
     l = @neo.node_with_label('Lemma', name: lemma_string)
-    l.add_index(l, 'lemma', lemma_string)
+    @neo.add_index(l, 'lemma', lemma_string)
     l
   end
 
