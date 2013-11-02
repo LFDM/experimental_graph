@@ -1,11 +1,11 @@
 begin
-create (_1:`Person` {`abbr`:"Caes.", `name`:"Gaius Iulius Caesar"})
-create (_2:`Person` {`name`:"Orgetorix"})
-create (_3:`Work` {`abbr`:"Gall.", `name`:"De bello Gallico"})
-create (_4:`Work` {`abbr`:"civ.", `name`:"De bello civile"})
-create (_5:`Lemma` {`name`:"Gaius"})
-create (_6:`Lemma` {`name`:"Caesar"})
-create (_7:`Lemma` {`name`:"Iulius"})
+create (_1:`Person` {`abbr`:"Caes.", `name`:"Gaius Iulius Caesar", `person`:true})
+create (_2:`Person` {`name`:"Orgetorix", `person`:true})
+create (_3:`Work` {`abbr`:"Gall.", `name`:"De bello Gallico", `work`:true})
+create (_4:`Work` {`abbr`:"civ.", `name`:"De bello civile", `work`:true})
+create (_5:`Lemma` {`lemma`:true, `name`:"Gaius"})
+create (_6:`Lemma` {`lemma`:true, `name`:"Caesar"})
+create (_7:`Lemma` {`lemma`:true, `name`:"Iulius"})
 create (_8 {`index`:1, `type`:"book"})
 create (_9 {`index`:2, `type`:"book"})
 create (_10 {`index`:3, `type`:"book"})
@@ -71,36 +71,68 @@ create (_69 {`index`:51, `type`:"chapter"})
 create (_70 {`index`:52, `type`:"chapter"})
 create (_71 {`index`:53, `type`:"chapter"})
 create (_72 {`index`:54, `type`:"chapter"})
-create (_73:`Sentence` {`index`:1, `text`:"Apud Helvetios longe nobilissimus fuit et ditissimus Orgetorix."})
-create (_74:`Sentence` {`index`:2, `text`:"Is M. Messala M. Pisone consulibus regni cupiditate inductus coniurationem nobilitatis fecit."})
-create (_75:`Ethnos` {`name`:"Helvetii"})
-create (_76:`Lemma` {`name`:"apud"})
-create (_77:`Lemma` {`name`:"longus"})
-create (_79:`Lemma` {`name`:"et"})
-create (_80:`Lemma` {`name`:"dis"})
-create (_81:`Lemma` {`name`:"is"})
-create (_82:`Lemma`)
-create (_83:`Lemma` {`name`:"Orgetorix"})
+create (_73:`Sentence` {`index`:1, `sentence`:true, `text`:"Apud Helvetios longe nobilissimus fuit et ditissimus Orgetorix."})
+create (_74:`Sentence` {`index`:2, `sentence`:true, `text`:"Is M. Messala M. Pisone consulibus regni cupiditate inductus coniurationem nobilitatis fecit."})
+create (_75:`Ethnos` {`ethnos`:true, `name`:"Helvetii"})
+create (_76:`Lemma` {`lemma`:true, `name`:"apud"})
+create (_77:`Lemma` {`lemma`:true, `name`:"longus"})
+create (_79:`Lemma` {`lemma`:true, `name`:"et"})
+create (_80:`Lemma` {`lemma`:true, `name`:"dis"})
+create (_81:`Lemma` {`lemma`:true, `name`:"is"})
+create (_82:`Lemma` {`lemma`:true})
+create (_83:`Lemma` {`lemma`:true, `name`:"Orgetorix"})
 create (_84 {`a`:"b"})
-create (_104:`Form` {`string`:"Orgetorix"})
-create (_105:`Form` {`string`:"Orgetorigis"})
-create (_106:`Form` {`string`:"Orgetorigi"})
-create (_107:`Form` {`string`:"Orgetorigem"})
-create (_108:`Form` {`string`:"Orgetorix"})
-create (_109:`Form` {`string`:"Orgetorige"})
-create (_118:`Token` {`index`:1, `string`:"Apud"})
-create (_119:`Token` {`index`:2, `string`:"Helvetios"})
-create (_120:`Token` {`index`:3, `string`:"longe"})
-create (_121:`Token` {`index`:4, `string`:"nobilissimus"})
-create (_122:`Token` {`index`:5, `string`:"fuit"})
-create (_123:`Token` {`index`:6, `string`:"et"})
-create (_124:`Token` {`index`:7, `string`:"ditissimus"})
-create (_125:`Token` {`index`:8, `string`:"Orgetorix"})
+create (_104:`Form` {`form`:true, `string`:"Orgetorix"})
+create (_105:`Form` {`form`:true, `string`:"Orgetorigis"})
+create (_106:`Form` {`form`:true, `string`:"Orgetorigi"})
+create (_107:`Form` {`form`:true, `string`:"Orgetorigem"})
+create (_108:`Form` {`form`:true, `string`:"Orgetorix"})
+create (_109:`Form` {`form`:true, `string`:"Orgetorige"})
+create (_118:`Token` {`index`:1, `string`:"Apud", `token`:true})
+create (_119:`Token` {`index`:2, `string`:"Helvetios", `token`:true})
+create (_120:`Token` {`index`:3, `string`:"longe", `token`:true})
+create (_121:`Token` {`index`:4, `string`:"nobilissimus", `token`:true})
+create (_122:`Token` {`index`:5, `string`:"fuit", `token`:true})
+create (_123:`Token` {`index`:6, `string`:"et", `token`:true})
+create (_124:`Token` {`index`:7, `string`:"ditissimus", `token`:true})
+create (_125:`Token` {`index`:8, `string`:"Orgetorix", `token`:true})
+create (_126:`Sentence` {`index`:6, `sentence`:true, `text`:"Orgetorix mortuus est."})
+create (_135:`Token` {`index`:1, `string`:"Orgetorix", `token`:true})
+create (_136:`Token` {`index`:2, `string`:"mortuus", `token`:true})
+create (_137:`Token` {`index`:3, `string`:"est", `token`:true})
+create (_138:`Form` {`form`:true, `string`:"Helvetii"})
+create (_139:`Form` {`form`:true, `string`:"Helvetiorum"})
+create (_140:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_141:`Form` {`form`:true, `string`:"Helvetios"})
+create (_142:`Form` {`form`:true, `string`:"Helvetii"})
+create (_143:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_144:`Form` {`form`:true, `string`:"Helvetii"})
+create (_145:`Form` {`form`:true, `string`:"Helvetiorum"})
+create (_146:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_147:`Form` {`form`:true, `string`:"Helvetios"})
+create (_148:`Form` {`form`:true, `string`:"Helvetii"})
+create (_149:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_150:`Form` {`form`:true, `string`:"Helvetii"})
+create (_151:`Form` {`form`:true, `string`:"Helvetiorum"})
+create (_152:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_153:`Form` {`form`:true, `string`:"Helvetios"})
+create (_154:`Form` {`form`:true, `string`:"Helvetii"})
+create (_155:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_157:`Form` {`form`:true, `string`:"Helvetii"})
+create (_158:`Form` {`form`:true, `string`:"Helvetiorum"})
+create (_159:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_160:`Form` {`form`:true, `string`:"Helvetios"})
+create (_161:`Form` {`form`:true, `string`:"Helvetii"})
+create (_162:`Form` {`form`:true, `string`:"Helvetiis"})
+create (_163:`Lemma` {`lemma`:true, `name`:"Helvetii"})
 create _1-[:`author_of`]->_3
 create _1-[:`author_of`]->_4
 create _1-[:`praenomen`]->_5
 create _1-[:`cognomen`]->_6
 create _1-[:`nomen_gentile`]->_7
+create _2-[:`cognomen`]->_83
+create _2-[:`occurs_as`]->_135
+create _2-[:`occurs_as`]->_125
 create _3-[:`contains`]->_15
 create _3-[:`contains`]->_14
 create _3-[:`contains`]->_13
@@ -168,7 +200,10 @@ create _8-[:`contains`]->_20
 create _8-[:`contains`]->_19
 create _20-[:`contains`]->_74
 create _20-[:`contains`]->_73
+create _22-[:`contains`]->_126
 create _73-[:`PRED`]->_122
+create _75-[:`occurs_as`]->_119
+create _75-[:`name`]->_163
 create _83-[:`form`]->_109
 create _83-[:`form`]->_108
 create _83-[:`form`]->_107
@@ -194,6 +229,7 @@ create _83-[:`acc`]->_107
 create _83-[:`voc`]->_108
 create _83-[:`abl`]->_109
 create _104-[:`occurs_as`]->_125
+create _104-[:`occurs_as`]->_135
 create _118-[:`ADV`]->_119
 create _122-[:`AuxP`]->_118
 create _122-[:`SBJ`]->_125
@@ -201,5 +237,33 @@ create _123-[:`ADV`]->_120
 create _123-[:`ATR_CO`]->_121
 create _123-[:`ATR_CO`]->_124
 create _125-[:`COORD`]->_123
+create _126-[:`PRED`]->_136
+create _136-[:`SBJ`]->_135
+create _136-[:`AuxV`]->_137
+create _160-[:`occurs_as`]->_119
+create _163-[:`form`]->_157
+create _163-[:`form`]->_158
+create _163-[:`form`]->_159
+create _163-[:`form`]->_160
+create _163-[:`form`]->_161
+create _163-[:`form`]->_162
+create _163-[:`nom`]->_157
+create _163-[:`m`]->_157
+create _163-[:`m`]->_158
+create _163-[:`m`]->_159
+create _163-[:`m`]->_160
+create _163-[:`m`]->_161
+create _163-[:`m`]->_162
+create _163-[:`gen`]->_158
+create _163-[:`dat`]->_159
+create _163-[:`acc`]->_160
+create _163-[:`voc`]->_161
+create _163-[:`abl`]->_162
+create _163-[:`pl`]->_157
+create _163-[:`pl`]->_158
+create _163-[:`pl`]->_159
+create _163-[:`pl`]->_160
+create _163-[:`pl`]->_161
+create _163-[:`pl`]->_162
 ;
 commit
