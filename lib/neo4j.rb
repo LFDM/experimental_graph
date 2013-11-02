@@ -55,8 +55,9 @@ class Neo4j
     Neography::Node.load(node)
   end
 
-  def find
-    # access the index
+  def find(index, key = index, value)
+    hashes = @neo.find_node_index(index, key, value)
+    hashes.map { |hsh| get_node(hsh) }
   end
 
   private
