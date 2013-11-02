@@ -5,3 +5,11 @@ require 'neography/tasks'
 RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
+
+namespace :neo4j do
+  desc 'Dump graph db data to a cql file'
+  task :dump do
+    system('./neo4j/bin/neo4j-shell -c "dump" > ./data/dump.cql')
+    puts 'Dump successful! Find the Cypher file in data/dump.cql'
+  end
+end
