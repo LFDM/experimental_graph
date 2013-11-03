@@ -76,18 +76,38 @@ create (_74:`Sentence` {`index`:2, `sentence`:true, `text`:"Is M. Messala M. Pis
 create (_75:`Ethnos` {`ethnos`:true, `name`:"Helvetii"})
 create (_76:`Lemma` {`lemma`:true, `name`:"apud"})
 create (_77:`Lemma` {`lemma`:true, `name`:"longus"})
+create (_78:`Lemma` {`lemma`:true, `name`:"Marcus"})
 create (_79:`Lemma` {`lemma`:true, `name`:"et"})
 create (_80:`Lemma` {`lemma`:true, `name`:"dis"})
 create (_81:`Lemma` {`lemma`:true, `name`:"is"})
 create (_82:`Lemma` {`lemma`:true})
 create (_83:`Lemma` {`lemma`:true, `name`:"Orgetorix"})
 create (_84 {`a`:"b"})
+create (_85:`Person` {`name`:"Marcus Messala", `person`:true})
+create (_86:`Person` {`name`:"Marcus Piso", `person`:true})
+create (_87:`Token` {`index`:7, `string`:"consulibus", `token`:true})
+create (_88:`Token` {`index`:11, `string`:"coniurationem", `token`:true})
+create (_89:`Token` {`index`:8, `string`:"regni", `token`:true})
+create (_91:`Token` {`index`:12, `string`:"nobilitatis", `token`:true})
+create (_92:`Lemma` {`lemma`:true, `name`:"Piso"})
+create (_93:`Token` {`index`:9, `string`:"cupiditate", `token`:true})
+create (_94:`Token` {`index`:13, `string`:"fecit", `token`:true})
+create (_95:`Token` {`index`:10, `string`:"inductus", `token`:true})
+create (_98:`Lemma` {`lemma`:true, `name`:"Messala"})
 create (_104:`Form` {`form`:true, `string`:"Orgetorix"})
 create (_105:`Form` {`form`:true, `string`:"Orgetorigis"})
 create (_106:`Form` {`form`:true, `string`:"Orgetorigi"})
 create (_107:`Form` {`form`:true, `string`:"Orgetorigem"})
 create (_108:`Form` {`form`:true, `string`:"Orgetorix"})
 create (_109:`Form` {`form`:true, `string`:"Orgetorige"})
+create (_110:`Year` {`greg`:-61, `year`:true})
+create (_111:`Token` {`index`:1, `string`:"Is", `token`:true})
+create (_112:`Token` {`index`:4, `string`:",", `token`:true})
+create (_113:`Token` {`index`:6, `string`:"Pisone", `token`:true})
+create (_114:`Event` {`event`:true, `type`:"consulate"})
+create (_115:`Token` {`index`:3, `string`:"Messala", `token`:true})
+create (_116:`Token` {`index`:5, `string`:"M", `token`:true})
+create (_117:`Token` {`index`:2, `string`:"M", `token`:true})
 create (_118:`Token` {`index`:1, `string`:"Apud", `token`:true})
 create (_119:`Token` {`index`:2, `string`:"Helvetios", `token`:true})
 create (_120:`Token` {`index`:3, `string`:"longe", `token`:true})
@@ -126,11 +146,12 @@ create (_161:`Form` {`form`:true, `string`:"Helvetii"})
 create (_162:`Form` {`form`:true, `string`:"Helvetiis"})
 create (_163:`Lemma` {`lemma`:true, `name`:"Helvetii"})
 create (_164:`Event` {`event`:true, `type`:"death"})
-create _1-[:`author_of`]->_3
 create _1-[:`author_of`]->_4
+create _1-[:`author_of`]->_3
 create _1-[:`praenomen`]->_5
 create _1-[:`cognomen`]->_6
 create _1-[:`nomen_gentile`]->_7
+create _2-[:`occurs_as`]->_111
 create _2-[:`occurs_as`]->_125
 create _2-[:`occurs_as`]->_135
 create _2-[:`name`]->_83
@@ -144,9 +165,9 @@ create _3-[:`contains`]->_11
 create _3-[:`contains`]->_10
 create _3-[:`contains`]->_9
 create _3-[:`contains`]->_8
-create _4-[:`contains`]->_16
-create _4-[:`contains`]->_17
 create _4-[:`contains`]->_18
+create _4-[:`contains`]->_17
+create _4-[:`contains`]->_16
 create _8-[:`contains`]->_72
 create _8-[:`contains`]->_71
 create _8-[:`contains`]->_70
@@ -204,15 +225,29 @@ create _8-[:`contains`]->_19
 create _20-[:`contains`]->_74
 create _20-[:`contains`]->_73
 create _22-[:`contains`]->_126
-create _73-[:`contains`]->_118
-create _73-[:`contains`]->_123
-create _73-[:`contains`]->_124
-create _73-[:`contains`]->_122
-create _73-[:`contains`]->_120
-create _73-[:`contains`]->_121
-create _73-[:`contains`]->_125
 create _73-[:`contains`]->_119
+create _73-[:`contains`]->_125
+create _73-[:`contains`]->_121
+create _73-[:`contains`]->_120
+create _73-[:`contains`]->_122
+create _73-[:`contains`]->_124
+create _73-[:`contains`]->_123
+create _73-[:`contains`]->_118
 create _73-[:`PRED`]->_122
+create _74-[:`contains`]->_94
+create _74-[:`contains`]->_91
+create _74-[:`contains`]->_88
+create _74-[:`contains`]->_95
+create _74-[:`contains`]->_93
+create _74-[:`contains`]->_89
+create _74-[:`contains`]->_87
+create _74-[:`contains`]->_113
+create _74-[:`contains`]->_116
+create _74-[:`contains`]->_112
+create _74-[:`contains`]->_115
+create _74-[:`contains`]->_117
+create _74-[:`contains`]->_111
+create _74-[:`PRED`]->_94
 create _75-[:`occurs_as`]->_119
 create _75-[:`name`]->_163
 create _83-[:`form`]->_109
@@ -239,46 +274,69 @@ create _83-[:`dat`]->_106
 create _83-[:`acc`]->_107
 create _83-[:`voc`]->_108
 create _83-[:`abl`]->_109
-create _104-[:`occurs_as`]->_125
+create _85-[:`praenomen`]->_78
+create _85-[:`occurs_as`]->_115
+create _85-[:`part_of`]->_114
+create _85-[:`stirps`]->_98
+create _86-[:`praenomen`]->_78
+create _86-[:`occurs_as`]->_113
+create _86-[:`part_of`]->_114
+create _86-[:`stirps`]->_92
+create _88-[:`ATR`]->_91
+create _93-[:`ATR`]->_89
+create _94-[:`COORD`]->_112
+create _94-[:`SBJ`]->_111
+create _94-[:`OBJ`]->_88
+create _95-[:`OBJ`]->_93
 create _104-[:`occurs_as`]->_135
+create _104-[:`occurs_as`]->_125
+create _111-[:`ATV`]->_95
+create _112-[:`ADV`]->_87
+create _112-[:`ADV_CO`]->_115
+create _112-[:`ADV_CO`]->_113
+create _113-[:`ATR`]->_116
+create _114-[:`source`]->_74
+create _114-[:`in`]->_110
+create _115-[:`ATR`]->_117
+create _116-[:`ATR`]->_116
 create _118-[:`ADV`]->_119
 create _122-[:`AuxP`]->_118
 create _122-[:`SBJ`]->_125
 create _123-[:`ADV`]->_120
-create _123-[:`ATR_CO`]->_121
 create _123-[:`ATR_CO`]->_124
+create _123-[:`ATR_CO`]->_121
 create _125-[:`COORD`]->_123
-create _126-[:`contains`]->_136
-create _126-[:`contains`]->_137
 create _126-[:`contains`]->_135
+create _126-[:`contains`]->_137
+create _126-[:`contains`]->_136
 create _126-[:`PRED`]->_136
 create _136-[:`SBJ`]->_135
 create _136-[:`AuxV`]->_137
 create _160-[:`occurs_as`]->_119
-create _163-[:`form`]->_157
-create _163-[:`form`]->_158
-create _163-[:`form`]->_159
-create _163-[:`form`]->_160
-create _163-[:`form`]->_161
 create _163-[:`form`]->_162
+create _163-[:`form`]->_161
+create _163-[:`form`]->_160
+create _163-[:`form`]->_159
+create _163-[:`form`]->_158
+create _163-[:`form`]->_157
 create _163-[:`nom`]->_157
-create _163-[:`m`]->_157
-create _163-[:`m`]->_158
-create _163-[:`m`]->_159
-create _163-[:`m`]->_160
-create _163-[:`m`]->_161
 create _163-[:`m`]->_162
+create _163-[:`m`]->_161
+create _163-[:`m`]->_160
+create _163-[:`m`]->_159
+create _163-[:`m`]->_158
+create _163-[:`m`]->_157
 create _163-[:`gen`]->_158
 create _163-[:`dat`]->_159
 create _163-[:`acc`]->_160
 create _163-[:`voc`]->_161
 create _163-[:`abl`]->_162
-create _163-[:`pl`]->_157
-create _163-[:`pl`]->_158
-create _163-[:`pl`]->_159
-create _163-[:`pl`]->_160
-create _163-[:`pl`]->_161
 create _163-[:`pl`]->_162
+create _163-[:`pl`]->_161
+create _163-[:`pl`]->_160
+create _163-[:`pl`]->_159
+create _163-[:`pl`]->_158
+create _163-[:`pl`]->_157
 create _164-[:`source`]->_126
 ;
 commit
