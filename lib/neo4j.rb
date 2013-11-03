@@ -29,7 +29,7 @@ class Neo4j
   end
 
   def node_with_label(label, args)
-    n = node(args)
+    n = node(args.merge(label.downcase => true))
     @neo.add_label(n, label)
     n
   end
