@@ -25,6 +25,7 @@ class XmlParser
       # the form with head 0 == the root node connects itself to the sentence
       head_token = find_by_index(tokens, head) || sent_node
       puts "Creating relation #{rel} from #{token.string}"
+      sent_node.outgoing(:contains) << token
       head_token.outgoing(rel) << token
     end
   end
