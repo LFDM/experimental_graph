@@ -13,6 +13,7 @@ namespace :neo4j do
     puts 'Dump successful! Find the Cypher file in data/dump.cql'
   end
 
+  desc 'Resets and reseeds the database'
   task :reseed do
     print "Do you really want to continue? Undumped changes will be lost. [y] "
     if $stdin.get.chomp == 'y'
