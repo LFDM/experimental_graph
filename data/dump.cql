@@ -125,14 +125,17 @@ create (_160:`Form` {`form`:true, `string`:"Helvetios"})
 create (_161:`Form` {`form`:true, `string`:"Helvetii"})
 create (_162:`Form` {`form`:true, `string`:"Helvetiis"})
 create (_163:`Lemma` {`lemma`:true, `name`:"Helvetii"})
+create (_164:`Event` {`event`:true, `type`:"death"})
 create _1-[:`author_of`]->_3
 create _1-[:`author_of`]->_4
 create _1-[:`praenomen`]->_5
 create _1-[:`cognomen`]->_6
 create _1-[:`nomen_gentile`]->_7
-create _2-[:`cognomen`]->_83
-create _2-[:`occurs_as`]->_135
 create _2-[:`occurs_as`]->_125
+create _2-[:`occurs_as`]->_135
+create _2-[:`name`]->_83
+create _2-[:`member_of`]->_75
+create _2-[:`part_of`]->_164
 create _3-[:`contains`]->_15
 create _3-[:`contains`]->_14
 create _3-[:`contains`]->_13
@@ -201,6 +204,14 @@ create _8-[:`contains`]->_19
 create _20-[:`contains`]->_74
 create _20-[:`contains`]->_73
 create _22-[:`contains`]->_126
+create _73-[:`contains`]->_118
+create _73-[:`contains`]->_123
+create _73-[:`contains`]->_124
+create _73-[:`contains`]->_122
+create _73-[:`contains`]->_120
+create _73-[:`contains`]->_121
+create _73-[:`contains`]->_125
+create _73-[:`contains`]->_119
 create _73-[:`PRED`]->_122
 create _75-[:`occurs_as`]->_119
 create _75-[:`name`]->_163
@@ -237,6 +248,9 @@ create _123-[:`ADV`]->_120
 create _123-[:`ATR_CO`]->_121
 create _123-[:`ATR_CO`]->_124
 create _125-[:`COORD`]->_123
+create _126-[:`contains`]->_136
+create _126-[:`contains`]->_137
+create _126-[:`contains`]->_135
 create _126-[:`PRED`]->_136
 create _136-[:`SBJ`]->_135
 create _136-[:`AuxV`]->_137
@@ -265,5 +279,6 @@ create _163-[:`pl`]->_159
 create _163-[:`pl`]->_160
 create _163-[:`pl`]->_161
 create _163-[:`pl`]->_162
+create _164-[:`source`]->_126
 ;
 commit
