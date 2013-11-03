@@ -16,7 +16,7 @@ namespace :neo4j do
   desc 'Resets and reseeds the database'
   task :reseed do
     print "Do you really want to continue? Undumped changes will be lost. [y] "
-    if $stdin.get.chomp == 'y'
+    if $stdin.gets.chomp == 'y'
       puts 'Resetting...'
       Rake::Task['neo4j:reset_yes_i_am_sure'].execute
       puts 'Seeding!'
