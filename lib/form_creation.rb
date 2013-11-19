@@ -19,13 +19,15 @@ class FormCreation
     @builder.build(*args)
   end
 
-  def create_forms(forms, with_stem = false)
+  def create_forms(forms, with_stem = true)
     nodes = create_nodes(forms)
     lemma_string = forms.first.to_s
-    lemma = find_or_create_lemma(lemma_string)
+    lemma = find_or_create_distinct_node(:lemma, lemma_string)
     nodes.zip(forms).each do |node, form|
       create_morphological_edges(node, form, lemma, with_stem)
     end
+    # return nodes for easier debugging
+    nodes
   end
 
   # this will only work with nouns at the moment
@@ -58,6 +60,8 @@ class FormCreation
 
   def handle_stem_edge(stem, lemma)
     # don't create an edge if its already here
+
+    require 'pry'; binding.pry
     unless @neo.has_rel?(stem, :incoming, :stem)
       lemma.outgoing(:stem) << stem
     end
@@ -73,14 +77,14 @@ class FormCreation
     index = type.to_s
     n = @neo.find(index, string).first
     return n if n
-    create_distinct_node(string)
+    create_distinct_node(type, string)
   end
 
-  def create_distint_node(type, string)
+  def create_distinct_node(type, string)
     index = type.to_s
     label = index.capitalize
     n = @neo.node_with_label(label, name: string)
-    @neo.add_index(l, index, string)
+    @neo.add_index(n, index, string)
     n
   end
 
