@@ -65,6 +65,11 @@ class Neo4j
     @neo.get_nodes_labeled(label)
   end
 
+  # Relationship handling
+  def has_rel?(node, rel_dir = :both, rel_type)
+    # node can be every type of node, even plain id
+    get_node(node).send(rel_dir, rel_type).to_a.any?
+  end
 
   private
 

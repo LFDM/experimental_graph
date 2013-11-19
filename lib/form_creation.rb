@@ -58,7 +58,9 @@ class FormCreation
 
   def handle_stem_edge(stem, lemma)
     # don't create an edge if its already here
-    lemma.outgoing(:stem) << stem
+    unless @neo.has_rel?(stem, :incoming, :stem)
+      lemma.outgoing(:stem) << stem
+    end
   end
 
   def edges_through_type(form)
